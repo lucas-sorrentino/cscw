@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  resources :pessoas
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' } do 
   	
   end
   devise_scope :user do
   authenticated :user do
-    root 'home#index', as: :authenticated_root
+    root 'pessoas#index', as: :authenticated_root
   end
 
   unauthenticated do
